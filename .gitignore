@@ -3,3 +3,7 @@ node_modules
 
 ## Mac OSX
 .DS_Store
+
+## Game Engine
+phaser.js
+

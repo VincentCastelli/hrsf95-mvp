@@ -13,6 +13,12 @@
   "rules": {
     "react/prop-types": [
       2
+    ],
+    "react/destructuring-assignment": [
+      "warn"
+    ],
+    "react/no-deprecated": [
+      "off"
     ]
   },
   "extends": [
