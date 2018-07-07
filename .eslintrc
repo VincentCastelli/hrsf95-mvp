@@ -11,6 +11,10 @@
     "es6": true
   },
   "rules": {
+    "arrow-body-style": [
+      "warn",
+      "always"
+    ],
     "react/prop-types": [
       2
     ],
