@@ -1,15 +1,24 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import TitleScreen from './TitleScreen';
 
-const Game = () => {
-  return (
-    <div>
-      <h1>
-        This works!
-      </h1>
-    </div>
-  );
-};
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    };
+  }
+
+  render() {
+    return (
+      <div className="title-screen">
+        <TitleScreen />
+      </div>
+    );
+  }
+}
 
 
 // Game.propTypes = {
