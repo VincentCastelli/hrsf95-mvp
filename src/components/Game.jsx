@@ -7,14 +7,29 @@ class Game extends React.Component {
     super(props);
 
     this.state = {
-
+      newGameClicked: false,
+      playerInit: false,
+      player: '',
     };
+
+    this.onNewGame = this.onNewGame.bind(this);
+  }
+
+  onNewGame() {
+    this.setState({
+      newGameClicked: true,
+    });
   }
 
   render() {
     return (
       <div className="title-screen">
-        <TitleScreen />
+        <TitleScreen
+          onClickNew={this.onNewGame()}
+          gameInit={this.state.newGameClicked === true}
+          playerInit={this.state.playerInit}
+          player={this.state.player}
+        />
       </div>
     );
   }

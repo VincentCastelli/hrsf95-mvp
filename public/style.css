@@ -3,21 +3,22 @@ body {
   font-family: 'VT323', monospace;
   font-size: 24px;
 }
-
-.pixelBtn, .title-screen {
+ .title-screen {
+  background-color: blanchedalmond;
+  background-size: cover;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.title-screen {
-  background-color: blanchedalmond;
-  background-size: cover;
-  height: 100vh;
-}
-
 .title-screen-ori {
   position: relative;
+}
+
+.pixelBtn {
+  height: 95%;
+  width: 95%;
 }
 
 
