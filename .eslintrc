@@ -15,15 +15,15 @@
       "warn",
       "always"
     ],
+    "operator-linebreak": "off",
     "react/prop-types": [
       2
     ],
     "react/destructuring-assignment": [
       "warn"
     ],
-    "react/no-deprecated": [
-      "off"
-    ]
+    "react/no-deprecated": "off",
+    "react/jsx-wrap-multilines": "off"
   },
   "extends": [
     "airbnb"
