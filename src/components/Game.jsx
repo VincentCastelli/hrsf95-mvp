@@ -1,35 +1,51 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import TitleScreen from './TitleScreen';
+import LevelOne from './LevelOne';
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      newGameClicked: false,
-      playerInit: false,
-      player: '',
+      titleScreen: true,
+      levelOne: false,
+      leaderboard: false,
+      playerNameData: '',
+      playerScoreData: 0,
     };
 
-    this.onNewGame = this.onNewGame.bind(this);
+    this.getPlayer = this.getPlayer.bind(this);
+    this.handlePlayerSubmit = this.handlePlayerSubmit.bind(this);
   }
 
-  onNewGame() {
+  getPlayer(player) {
+    console.log(this.state.player);
     this.setState({
-      newGameClicked: true,
+      playerNameData: player,
     });
+  }
+
+  handlePlayerSubmit() {
+    if (this.state.playerNameData.length > 0) {
+      this.setState({
+        titleScreen: false,
+        levelOne: true,
+      });
+    }
   }
 
   render() {
     return (
       <div className="title-screen">
-        <TitleScreen
-          onClickNew={this.onNewGame()}
-          gameInit={this.state.newGameClicked === true}
-          playerInit={this.state.playerInit}
-          player={this.state.player}
-        />
+        {
+          this.state.titleScreen &&
+          <TitleScreen getPlayer={this.getPlayer} handlePlayerSubmit={this.handlePlayerSubmit} />
+        }
+        {
+          this.state.levelOne &&
+          <LevelOne />
+        }
       </div>
     );
   }
@@ -37,7 +53,7 @@ class Game extends React.Component {
 
 
 // Game.propTypes = {
-//   score: PropTypes.number.isRequired,
+
 // };
 
 export default Game;
