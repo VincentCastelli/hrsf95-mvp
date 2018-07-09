@@ -1,7 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import TitleScreen from './TitleScreen';
 import GameMain from './GameMain';
+import Leaderboard from './Leaderboard';
 
 class Game extends React.Component {
   constructor(props) {
@@ -17,10 +17,10 @@ class Game extends React.Component {
 
     this.getPlayer = this.getPlayer.bind(this);
     this.handlePlayerSubmit = this.handlePlayerSubmit.bind(this);
+    this.handleGameOver = this.handleGameOver.bind(this);
   }
 
   getPlayer(player) {
-    console.log(this.state.player);
     this.setState({
       playerNameData: player,
     });
@@ -35,6 +35,13 @@ class Game extends React.Component {
     }
   }
 
+  handleGameOver() {
+    this.setState({
+      gameMain: false,
+      leaderboard: true,
+    });
+  }
+
   render() {
     return (
       <div className="title-screen">
@@ -44,16 +51,15 @@ class Game extends React.Component {
         }
         {
           this.state.gameMain &&
-          <GameMain />
+          <GameMain handleGameOver={this.handleGameOver} />
+        }
+        {
+          this.state.leaderboard &&
+          <Leaderboard />
         }
       </div>
     );
   }
 }
-
-
-// Game.propTypes = {
-
-// };
 
 export default Game;

@@ -19,6 +19,8 @@ const game = new Phaser.Game(config);
 
 let map;
 let player;
+let greenCar;
+let redCar;
 let heart1;
 let heart2;
 let heart3;
@@ -35,6 +37,8 @@ function preload() {
   this.load.spritesheet('frog',
     './assets/frog_hop1-sheet.png',
     { frameWidth: 50, frameHeight: 50 });
+  this.load.image('greenCar', './assets/car_green.png');
+  this.load.image('redCar', './assets/car_red.png');
 }
 
 function create() {
@@ -44,6 +48,18 @@ function create() {
     key: 'lilypad',
     repeat: 4,
     setXY: { x: 75, y: 20, stepX: 160 },
+  });
+
+  greenCar = this.physics.add.group({
+    key: 'greenCar',
+    repeat: 3,
+    setXY: { x: 780, y: 68, stepY: 128 },
+  });
+
+  redCar = this.physics.add.group({
+    key: 'redCar',
+    repeat: 3,
+    setXY: { x: 780, y: 132, stepY: 128 },
   });
 
   player = this.physics.add.sprite(400, 600, 'frog');
@@ -97,8 +113,14 @@ function update() {
   } else {
     player.setVelocityY(0);
   }
+
+  // greenCar.setVelocityX((50 + Math.random()) * 200);
 }
 
 const collectLily = (player, lilypads) => {
   lilypads.disableBody(true, true);
 };
+
+// const carGone = (greenCar) => {
+//   greenCar.setVelocityX(50 + Math.random() * 200);
+// };
