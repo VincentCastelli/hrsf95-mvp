@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import TitleScreen from './TitleScreen';
-import LevelOne from './LevelOne';
+import GameMain from './GameMain';
 
 class Game extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Game extends React.Component {
 
     this.state = {
       titleScreen: true,
-      levelOne: false,
+      gameMain: false,
       leaderboard: false,
       playerNameData: '',
       playerScoreData: 0,
@@ -30,7 +30,7 @@ class Game extends React.Component {
     if (this.state.playerNameData.length > 0) {
       this.setState({
         titleScreen: false,
-        levelOne: true,
+        gameMain: true,
       });
     }
   }
@@ -43,8 +43,8 @@ class Game extends React.Component {
           <TitleScreen getPlayer={this.getPlayer} handlePlayerSubmit={this.handlePlayerSubmit} />
         }
         {
-          this.state.levelOne &&
-          <LevelOne />
+          this.state.gameMain &&
+          <GameMain />
         }
       </div>
     );
